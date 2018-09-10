@@ -19,8 +19,18 @@ app.use(express.static(publicPath));
 io.on('connection', socket => {
     console.log('New User Connected');
 
+    let roomList = users.getRoomList();
+
+    console.log(roomList);
+    socket.emit('onLoad',roomList);
+
     socket.on('join', (params, callback) => {
-        if( !isRealString(params.name) || !isRealString(params.room)){
+        if(params.room === ""){
+            params.room = params.selectRoom
+        }
+        console.log(params.selectRoom)
+        params.room = params.room.toUpperCase();
+        if( !isRealString(params.name) || !isRealString(params.room) ) {
             return callback('Name and Room Name is required');
         }
 

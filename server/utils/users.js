@@ -32,6 +32,12 @@ class Users {
 
         return namesArray;
     }
+
+    getRoomList(){
+        let roomArray = this.users.map(user => user.room);
+
+        return roomArray;
+    }
 }
 
 module.exports = {
