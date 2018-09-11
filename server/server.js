@@ -34,6 +34,10 @@ io.on('connection', socket => {
             return callback('Name and Room Name is required');
         }
 
+        if(users.users.filter(user => user.name === params.name).length > 0){
+            return callback('Display name is not available. Please choose a different user name')
+        }
+
         socket.join(params.room);
         users.removeUser(socket.id);
         users.addUser(socket.id, params.name, params.room);

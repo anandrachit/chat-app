@@ -27,6 +27,8 @@ socket.on('connect', function () {
             console.log('No Error');
         }
     });
+
+    jQuery('#chat-main').text(`Room: ${params.room}`);
 });
 
 socket.on('newMessage', function (message)  {
