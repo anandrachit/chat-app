@@ -34,7 +34,7 @@ io.on('connection', socket => {
             return callback('Name and Room Name is required');
         }
 
-        if(users.users.filter(user => user.name === params.name).length > 0){
+        if(users.users.filter(user => user.name === params.name && user.room === params.room).length > 0){
             return callback('Display name is not available. Please choose a different user name')
         }
 
