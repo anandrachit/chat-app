@@ -14,3 +14,7 @@ button,button:hover{border:none;color:#fff;padding:10px}.chat__messages,.chat__s
     padding: 12px 16px;
     z-index: 1;
 }
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
